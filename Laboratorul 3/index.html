@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucrare de laborator — Obiecte, funcții și metode în JavaScript</title>
+<style>
+  :root {
+    --bg: #f4f6f9;
+    --card-bg: #ffffff;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --win: #16a34a;
+    --lose: #dc2626;
+    --draw: #d97706;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 32px 16px;
+    line-height: 1.5;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  .card h2 {
+    margin-top: 0;
+    font-size: 1.15rem;
+    color: var(--primary-dark);
+  }
+
+  .card p.note {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .choices {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+
+  .choice-btn {
+    font-size: 1rem;
+    padding: 14px 20px;
+    border: 2px solid var(--primary);
+    background: #fff;
+    color: var(--primary-dark);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    min-width: 110px;
+  }
+
+  .choice-btn:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .choice-btn:active {
+    transform: translateY(0);
+  }
+
+  .rezultat-rundei {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 16px 0;
+  }
+
+  .rezultat-rundei > div {
+    background: #f9fafb;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    min-width: 140px;
+  }
+
+  .rezultat-rundei span.label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  #mesaj-runda {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.05rem;
+    min-height: 26px;
+    margin-top: 8px;
+  }
+
+  #mesaj-runda.castig { color: var(--win); }
+  #mesaj-runda.pierdere { color: var(--lose); }
+  #mesaj-runda.egalitate { color: var(--draw); }
+
+  .scor {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border);
+    text-align: center;
+  }
+
+  .scor-item {
+    min-width: 100px;
+  }
+
+  .scor-item .valoare {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--primary-dark);
+  }
+
+  .scor-item .eticheta {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  #mesaj-conducere,
+  #mesaj-castigator {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: var(--muted);
+    min-height: 20px;
+  }
+
+  #mesaj-castigator {
+    font-weight: bold;
+    color: var(--win);
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  #btn-reset {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: var(--lose);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+
+  #btn-reset:hover {
+    opacity: 0.9;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 32px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Crearea de obiecte, funcții și metode în JavaScript</h1>
+<p class="subtitle">Programarea client-side a site-urilor Web — Lucrare de laborator</p>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Exercițiul 1 — Funcție de calcul</h2>
+    <p class="note">Rezultatele funcției <code>calculateSum(a, b)</code> sunt afișate în consola browserului (F12 → Console).</p>
+  </div>
+
+  <div class="card">
+    <h2>Exercițiul 2 — Obiect cu metodă</h2>
+    <p class="note">Obiectul <code>student</code> și mesajele metodei <code>introduce()</code> sunt afișate în consola browserului (F12 → Console).</p>
+  </div>
+
+  <div class="card">
+    <h2>Exercițiul 3 — Piatră, Foarfecă, Hârtie</h2>
+
+    <div class="choices">
+      <button class="choice-btn" id="btn-piatra" data-alegere="piatra">🪨 Piatră</button>
+      <button class="choice-btn" id="btn-hartie" data-alegere="hartie">📄 Hârtie</button>
+      <button class="choice-btn" id="btn-foarfeca" data-alegere="foarfeca">✂️ Foarfecă</button>
+    </div>
+
+    <div class="rezultat-rundei">
+      <div>
+        <span class="label">Alegerea ta</span>
+        <span id="alegere-utilizator">—</span>
+      </div>
+      <div>
+        <span class="label">Alegerea calculatorului</span>
+        <span id="alegere-calculator">—</span>
+      </div>
+    </div>
+
+    <p id="mesaj-runda"></p>
+
+    <div class="scor">
+      <div class="scor-item">
+        <div class="valoare" id="scor-player">0</div>
+        <div class="eticheta">Tu</div>
+      </div>
+      <div class="scor-item">
+        <div class="valoare" id="scor-calculator">0</div>
+        <div class="eticheta">Calculator</div>
+      </div>
+      <div class="scor-item">
+        <div class="valoare" id="scor-egalitati">0</div>
+        <div class="eticheta">Egalități</div>
+      </div>
+    </div>
+
+    <p id="mesaj-conducere"></p>
+    <p id="mesaj-castigator"></p>
+
+    <div class="actions">
+      <button id="btn-reset">Joc nou</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>Laborator — Obiecte, funcții și metode în JavaScript</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
