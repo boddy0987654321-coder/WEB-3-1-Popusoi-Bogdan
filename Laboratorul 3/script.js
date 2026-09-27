@@ -8,12 +8,12 @@ console.log("Suma (20, 35):", calculateSum(20, 35));
 
 
 const student = {
-    name: "Alex",
-    age: 17,
-    grade: 9,
-    introduce: function() {
-        console.log(`Sunt \({this.name} și am\){this.age} ani.`);
-    }
+  name: "Alex",
+  age: 17,
+  grade: 9,
+  introduce: function() {
+    console.log(`Sunt ${this.name} și am ${this.age} ani.`);
+  }
 };
 
 console.log("--- Exercițiul 2 ---");
