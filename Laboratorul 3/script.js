@@ -106,7 +106,7 @@ function joacaRunda(alegereUtilizator) {
 
     gameScore.runde++;
 
-    const simboluri = { piatra: "🪨 Piatră", hartie: "📄 Hârtie", foarfeca: "✂️ Foarfecă" };
+    const simboluri = { piatra: "⛰️ Piatră", hartie: "📄 Hârtie", foarfeca: "✂️ Foarfecă" };
     elAlegereUtilizator.textContent = simboluri[alegereUtilizator];
     elAlegereCalculator.textContent = simboluri[alegereComputer];
 
