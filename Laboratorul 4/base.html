@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catalog electronic</title>
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<h1>CATALOG ELECTRONIC</h1>
+<p id="numar"></p>
+<div id="catalog"></div>
+
+<fieldset>
+  <legend>Adaugă elev</legend>
+  <label>Nume: <input type="text" id="nume"></label>
+  <label>Vârsta: <input type="number" id="varsta" min="1"></label>
+  <label>Nota: <input type="number" id="nota" min="1" max="10"></label>
+  <button onclick="adaugaElev()">Adaugă elev</button>
+</fieldset>
+
+<fieldset>
+  <legend>Șterge elev</legend>
+  <label>Numele elevului: <input type="text" id="numeSterge"></label>
+  <button onclick="stergeElev()">Șterge elev</button>
+</fieldset>
+
+<fieldset>
+  <legend>Caută elev</legend>
+  <label>Caută elev: <input type="text" id="numeCauta"></label>
+  <button onclick="cautaElev()">Caută</button>
+  <div id="rezultat"></div>
+</fieldset>
+
+<script src="base.js"></script>
+</body>
+</html>
