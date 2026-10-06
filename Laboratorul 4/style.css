@@ -1,0 +1,43 @@
+body {
+  font-family: Arial;
+  max-width: 560px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background: #eee;
+  color: #222;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+input {
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 12px;
+  margin: 0 5px 5px 0;
+  border: 1px solid #999;
+  background: #ddd;
+  color: #222;
+  cursor: pointer;
+}
+
+button.sterge {
+  background: #ccc;
+}
+
+#lista {
+  margin-top: 15px;
+  padding: 10px;
+  background: white;
+  border: 1px solid #ccc;
+}

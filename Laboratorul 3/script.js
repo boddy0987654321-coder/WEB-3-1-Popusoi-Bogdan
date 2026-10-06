@@ -102,8 +102,11 @@ function joacaRunda(alegereUtilizator) {
     if (gameScore.player === 5 || gameScore.computer === 5) return;
 
     const alegereComputer = alegereCalculator();
-    const rezultat = stabilesteCastigatorul(alegereUtilizator, alegereComputer);
+    
+    const rezultat = stabilesteCastigatorul(alegereUtilizator, alege
+        reComputer);
 
+    
     gameScore.runde++;
 
     const simboluri = { piatra: "⛰️ Piatră", hartie: "📄 Hârtie", foarfeca: "✂️ Foarfecă" };
