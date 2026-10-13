@@ -1,4 +1,3 @@
-// ===== Exercițiul 1 =====
 let fructe = ["Măr", "Pară", "Banana", "Portocală", "Kiwi"];
 console.log("Exercițiul 1");
 console.log("Lista:", fructe);
@@ -6,16 +5,14 @@ console.log("Primul element:", fructe[0]);
 console.log("Ultimul element:", fructe[fructe.length - 1]);
 console.log("Număr de elemente:", fructe.length);
 
-// ===== Exercițiul 2 =====
 let orase = ["Chișinău", "Bălți", "Cahul"];
-orase.push("Orhei");      // la sfârșit
-orase.unshift("Soroca");  // la început
-orase.pop();              // elimină ultimul
-orase.shift();            // elimină primul
+orase.push("Orhei");      
+orase.unshift("Soroca");  
+orase.pop();              
+orase.shift();            
 console.log("Exercițiul 2");
 console.log("Lista finală:", orase);
 
-// ===== Exercițiile 3 și 4 =====
 let produse = ["Pâine", "Lapte", "Ouă"];
 
 function afiseaza() {
