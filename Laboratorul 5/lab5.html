@@ -1,25 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Laborator 4 - Exercițiile 1-4</title>
-<link rel="stylesheet" href="css/style.css">
+<title>Registru studenți</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Laborator 4 – Exercițiile 1–4</h1>
-<p>Rezultatele exercițiilor 1 și 2 se văd în consolă (F12 → Console).</p>
 
-<h2>Exercițiile 3 și 4 – Lista de cumpărături</h2>
-<input type="text" id="produs" placeholder="Introdu un produs">
-<div>
-  <button onclick="adaugaSfarsit()">Adaugă la sfârșit</button>
-  <button onclick="adaugaInceput()">Adaugă la început</button>
-  <button class="sterge" onclick="stergePrimul()">Șterge primul</button>
-  <button class="sterge" onclick="stergeUltimul()">Șterge ultimul</button>
+<div class="wrap">
+  <header>
+    <div>
+      <p class="kicker">Asistență pentru programarea client-side a site-urilor Web</p>
+      <h1>Registru studenți</h1>
+    </div>
+    <div class="count">Studenți în listă: <strong id="nr">0</strong></div>
+  </header>
+
+  <div class="layout">
+    <div class="side">
+
+      <!-- Sarcina 2: formularul de adăugare -->
+      <section class="panel">
+        <h2>Adaugă student</h2>
+        <form id="form" onsubmit="adaugaStudent(event)">
+          <div class="field full">
+            <label for="f-nume">Nume și prenume</label>
+            <input id="f-nume" placeholder="ex. Elena Rotaru">
+          </div>
+          <div class="field">
+            <label for="f-grupa">Grupa</label>
+            <input id="f-grupa" placeholder="SI-231">
+          </div>
+          <div class="field">
+            <label for="f-varsta">Vârsta</label>
+            <input id="f-varsta" type="number" placeholder="14–100">
+          </div>
+          <div class="field full">
+            <label for="f-spec">Specialitatea</label>
+            <select id="f-spec">
+              <option>Programare</option>
+              <option>Securitate informațională</option>
+              <option>Rețele de calculatoare</option>
+              <option>Design web</option>
+              <option>Analiza datelor</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="f-avatar">Avatar</label>
+            <select id="f-avatar">
+              <option value="👩‍💻">👩‍💻 Programatoare</option>
+              <option value="👨‍💻">👨‍💻 Programator</option>
+              <option value="🧑‍🎓">🧑‍🎓 Student</option>
+              <option value="👩‍🎓">👩‍🎓 Studentă</option>
+              <option value="🧑‍🔬">🧑‍🔬 Cercetător</option>
+            </select>
+          </div>
+          <button class="btn" type="submit">Adaugă studentul</button>
+          <p class="msg" id="msg"></p>
+        </form>
+      </section>
+
+      <!-- Sarcina 4: controale Flexbox -->
+      <section class="panel">
+        <h2>Controale Flexbox</h2>
+
+        <div class="ctl">
+          <span>justify-content</span>
+          <div class="chips">
+            <button class="chip" onclick="schimbaJustify('flex-start')">flex-start</button>
+            <button class="chip" onclick="schimbaJustify('center')">center</button>
+            <button class="chip" onclick="schimbaJustify('flex-end')">flex-end</button>
+            <button class="chip" onclick="schimbaJustify('space-between')">space-between</button>
+            <button class="chip" onclick="schimbaJustify('space-around')">space-around</button>
+            <button class="chip" onclick="schimbaJustify('space-evenly')">space-evenly</button>
+          </div>
+        </div>
+
+        <div class="ctl">
+          <span>align-items</span>
+          <div class="chips">
+            <button class="chip" onclick="schimbaAlign('stretch')">stretch</button>
+            <button class="chip" onclick="schimbaAlign('flex-start')">flex-start</button>
+            <button class="chip" onclick="schimbaAlign('center')">center</button>
+            <button class="chip" onclick="schimbaAlign('flex-end')">flex-end</button>
+            <button class="chip" onclick="schimbaAlign('baseline')">baseline</button>
+          </div>
+        </div>
+
+        <div class="ctl">
+          <span>flex-wrap</span>
+          <div class="chips">
+            <button class="chip" onclick="schimbaWrap('wrap')">wrap</button>
+            <button class="chip" onclick="schimbaWrap('nowrap')">nowrap</button>
+          </div>
+        </div>
+
+        <div class="ctl">
+          <span>gap</span>
+          <div class="gaprow">
+            <input id="gap" type="range" min="0" max="48" step="2" value="16" oninput="schimbaGap(this.value)">
+            <output id="gap-out">16px</output>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Sarcinile 1 și 3: lista de carduri -->
+    <div class="stage-wrap">
+      <div id="lista"></div>
+    </div>
+  </div>
 </div>
-<div id="lista"></div>
 
-<script src="js/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
