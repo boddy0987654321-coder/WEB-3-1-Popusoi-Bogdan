@@ -74,11 +74,16 @@ function adaugaStudent(event) {
 }
 
 function stergeStudent(id) {
-  studenti = studenti.filter(function (s) {
-    return s.id !== id;
+  const index = studenti.findIndex(function (s) {
+    return s.id === id;
   });
+
+  if (index !== -1) {
+    studenti.splice(index, 1);
+  }
   afiseazaStudenti();
 }
+
 
 function schimbaJustify(valoare) {
   lista.style.justifyContent = valoare;
