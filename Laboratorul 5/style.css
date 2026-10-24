@@ -4,16 +4,16 @@
 
 body {
   margin: 0;
-  padding: 24px 16px;
-  background: white;
-  color: #222;
-  font-family: Arial, sans-serif;
+  padding: 32px 16px;
+  background: #faf5f0;
+  color: #960016; /* Tot textul general a devenit roșu */
+  font-family: 'Inter', Arial, sans-serif;
+  line-height: 1.5;
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   margin: 0;
+  color: #960016; /* Toate titlurile sunt roșii */
 }
 
 .wrap {
@@ -25,21 +25,22 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: end;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.kicker {
-  margin: 0 0 4px;
-  font-size: 13px;
-  color: #666;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
 }
 
 .count {
-  padding: 6px 14px;
-  background: #eee;
-  border-radius: 20px;
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 30px;
+  font-size: 14px;
+  color: #960016;
+}
+
+.count strong {
+  color: #960016;
 }
 
 .layout {
@@ -52,8 +53,9 @@ header {
 .side {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   width: 320px;
+  flex-shrink: 0;
 }
 
 .stage-wrap {
@@ -62,65 +64,88 @@ header {
 }
 
 .panel {
-  padding: 16px;
-  background: #eee;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
 }
 
 .panel h2 {
-  margin-bottom: 12px;
-  font-size: 18px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #960016;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin-bottom: 10px;
+  gap: 6px;
+  margin-bottom: 12px;
+  flex: 1;
 }
 
 label {
-  font-size: 13px;
-  color: #555;
+  font-size: 12px;
+  color: #960016; /* Etichetele din formular sunt roșii */
+  font-weight: 600;
 }
 
-input,
-select {
-  padding: 8px;
+input, select {
+  width: 100%;
+  padding: 9px 12px;
   font-size: 14px;
-  border: 1px solid #bbb;
-  border-radius: 6px;
-  background: white;
+  color: #960016; /* Textul scris în inputuri/selecturi va fi roșu */
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  outline: none;
+}
+
+input:focus, select:focus {
+  border-color: #960016;
+  background: #ffffff;
 }
 
 .btn {
   width: 100%;
-  padding: 10px;
+  padding: 11px;
   font-size: 14px;
-  color: white;
-  background: #333;
+  font-weight: 600;
+  color: #ffffff;
+  background: #960016;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
+.btn:hover {
+  background: #7a0012;
+}
+
 .msg {
-  min-height: 20px;
+  min-height: 18px;
   margin: 8px 0 0;
   font-size: 13px;
-  color: #b00020;
+  color: #960016;
 }
 
 .ctl {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .ctl span {
   display: block;
-  margin-bottom: 6px;
-  font-size: 13px;
-  color: #555;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #960016; /* Denumirile proprietăților Flexbox sunt roșii */
+  font-family: monospace;
 }
 
 .chips {
@@ -130,27 +155,37 @@ select {
 }
 
 .chip {
-  padding: 5px 9px;
+  padding: 6px 10px;
   font-size: 12px;
-  background: white;
-  border: 1px solid #bbb;
+  font-weight: 500;
+  background: #f1f5f9;
+  color: #960016; /* Textul pe butoanele mici Flexbox este roșu */
+  border: 1px solid #cbd5e1;
   border-radius: 6px;
   cursor: pointer;
 }
 
 .chip:hover {
-  background: #ddd;
+  background: #e2e8f0;
+  color: #960016;
 }
 
 .gaprow {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
-.gaprow input {
-  flex: 1;
-  padding: 0;
+.gaprow input[type="range"] {
+  accent-color: #960016;
+  cursor: pointer;
+}
+
+#gap-out {
+  font-size: 13px;
+  font-weight: 600;
+  color: #960016;
+  min-width: 36px;
 }
 
 #lista {
@@ -160,90 +195,107 @@ select {
   align-items: stretch;
   gap: 16px;
   min-height: 560px;
-  padding: 16px;
-  background: #f5f5f5;
-  border: 2px dashed #ccc;
-  border-radius: 12px;
+  padding: 20px;
+  background: #ffffff;
+  border: 2px dashed #cbd5e1;
+  border-radius: 14px;
   overflow-x: auto;
 }
 
 .empty {
   margin: auto;
-  color: #666;
+  color: #960016;
+  font-size: 15px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  justify-content: space-between;
   width: 250px;
   flex-shrink: 0;
-  padding: 16px;
-  background: #e4e4e4;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  padding: 18px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
 }
 
 .who {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-bottom: 14px;
 }
 
 .avatar {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  font-size: 26px;
-  background: white;
+  width: 46px;
+  height: 46px;
+  font-size: 24px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
   border-radius: 10px;
+}
+
+.who h3 {
+  font-size: 15px;
+  color: #960016; /* Numele studentului din card */
 }
 
 .who p {
   margin: 2px 0 0;
-  font-size: 13px;
-  color: #666;
+  font-size: 12px;
+  color: #960016; /* Grupa studentului din card */
 }
 
 dl {
-  margin: 0;
+  margin: 0 0 16px 0;
 }
 
 dl div {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 dt {
-  color: #666;
+  color: #960016; /* Etichetele (Vârsta, Specialitatea) */
 }
 
 dd {
   margin: 0;
-  font-weight: bold;
+  font-weight: 600;
+  color: #960016; /* Valorile din card */
   text-align: right;
 }
 
 .badge {
-  padding: 2px 10px;
-  font-size: 12px;
-  color: #1f6b45;
-  background: #cfe9d8;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #047857;
+  background: #d1fae5;
   border-radius: 20px;
 }
 
 .del {
+  width: 100%;
   margin-top: auto;
   padding: 8px;
-  color: #a12b2b;
-  background: #f7dede;
-  border: 1px solid #e2b4b4;
-  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #960016;
+  background: #fdf2f2;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
   cursor: pointer;
+}
+
+.del:hover {
+  background: #fee2e2;
 }

@@ -49,7 +49,7 @@ function adaugaStudent(event) {
   const avatar = document.getElementById("f-avatar").value;
   const msg = document.getElementById("msg");
 
-  if (nume === "" || grupa === "" || varsta === 0) {
+  if (nume === "" || grupa === "" || !varsta) {
     msg.textContent = "Completați toate câmpurile.";
     return;
   }
@@ -74,7 +74,7 @@ function adaugaStudent(event) {
 }
 
 function stergeStudent(id) {
-  const index = studenti.findIndex(function (s) {
+  const index = studenti.findIndex(function(s) {
     return s.id === id;
   });
 
@@ -83,7 +83,6 @@ function stergeStudent(id) {
   }
   afiseazaStudenti();
 }
-
 
 function schimbaJustify(valoare) {
   lista.style.justifyContent = valoare;
