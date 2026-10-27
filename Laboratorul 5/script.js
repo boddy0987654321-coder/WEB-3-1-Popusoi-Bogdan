@@ -2,8 +2,8 @@ let studenti = [
   { id: 1, nume: "Ana Popescu", grupa: "SI-231", varsta: 19, specialitate: "Securitate informațională", avatar: "👩‍💻" },
   { id: 2, nume: "Mihai Rusu", grupa: "SI-231", varsta: 20, specialitate: "Securitate informațională", avatar: "👨‍💻" },
   { id: 3, nume: "Irina Ciobanu", grupa: "PR-232", varsta: 18, specialitate: "Programare", avatar: "👩‍🎓" },
-  { id: 4, nume: "Andrei Munteanu", grupa: "PR-232", varsta: 21, specialitate: "Programare", avatar: "🧑‍🎓" },
-  { id: 5, nume: "Elena Rotaru", grupa: "RC-233", varsta: 22, specialitate: "Rețele de calculatoare", avatar: "🧑‍🔬" }
+  { id: 4, nume: "Andrei Munteanu", grupa: "PR-232", varsta: 21, specialitate: "Programare", avatar: "👨‍🎓" },
+  { id: 5, nume: "Elena Rotaru", grupa: "RC-233", varsta: 22, specialitate: "Rețele de calculatoare", avatar: "💻" }
 ];
 
 let urmatorulId = 6;
