@@ -6,14 +6,14 @@ body {
   margin: 0;
   padding: 32px 16px;
   background: #faf5f0;
-  color: #960016; /* Tot textul general a devenit roșu */
+  color: #960016; 
   font-family: 'Inter', Arial, sans-serif;
   line-height: 1.5;
 }
 
 h1, h2, h3 {
   margin: 0;
-  color: #960016; /* Toate titlurile sunt roșii */
+  color: #960016; 
 }
 
 .wrap {
@@ -92,7 +92,7 @@ header {
 
 label {
   font-size: 12px;
-  color: #960016; /* Etichetele din formular sunt roșii */
+  color: #960016; 
   font-weight: 600;
 }
 
@@ -100,7 +100,7 @@ input, select {
   width: 100%;
   padding: 9px 12px;
   font-size: 14px;
-  color: #960016; /* Textul scris în inputuri/selecturi va fi roșu */
+  color: #960016; 
   border: 1px solid #cbd5e1;
   border-radius: 8px;
   background: #f8fafc;
@@ -144,7 +144,7 @@ input:focus, select:focus {
   margin-bottom: 8px;
   font-size: 12px;
   font-weight: 600;
-  color: #960016; /* Denumirile proprietăților Flexbox sunt roșii */
+  color: #960016; 
   font-family: monospace;
 }
 
@@ -159,7 +159,7 @@ input:focus, select:focus {
   font-size: 12px;
   font-weight: 500;
   background: #f1f5f9;
-  color: #960016; /* Textul pe butoanele mici Flexbox este roșu */
+  color: #960016; 
   border: 1px solid #cbd5e1;
   border-radius: 6px;
   cursor: pointer;
@@ -241,13 +241,13 @@ input:focus, select:focus {
 
 .who h3 {
   font-size: 15px;
-  color: #960016; /* Numele studentului din card */
+  color: #960016; 
 }
 
 .who p {
   margin: 2px 0 0;
   font-size: 12px;
-  color: #960016; /* Grupa studentului din card */
+  color: #960016; 
 }
 
 dl {
@@ -264,13 +264,13 @@ dl div {
 }
 
 dt {
-  color: #960016; /* Etichetele (Vârsta, Specialitatea) */
+  color: #960016;
 }
 
 dd {
   margin: 0;
   font-weight: 600;
-  color: #960016; /* Valorile din card */
+  color: #960016; 
   text-align: right;
 }
 
