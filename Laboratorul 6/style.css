@@ -24,13 +24,11 @@ body {
     overflow-x: hidden;
 }
 
-/* Layout principal cu Sidebar + Panou */
 .app-wrapper {
     display: flex;
     min-height: 100vh;
 }
 
-/* SIDEBAR */
 .sidebar {
     width: 270px;
     background-color: var(--bg-sidebar);
@@ -132,8 +130,6 @@ body {
 .sidebar-footer .info-card p {
     margin: 0;
 }
-
-/* ZONA PRINCIPALĂ */
 .main-panel {
     flex: 1;
     padding: 2.5rem 3rem;
@@ -165,7 +161,6 @@ body {
     font-size: 0.95rem;
 }
 
-/* Butoane Alb-Negru */
 .btn-primary,
 .btn-secondary {
     background-color: var(--black) !important;
@@ -199,7 +194,6 @@ body {
     background: var(--bg-body);
 }
 
-/* Buton de ștergere (dacă folosești .btn-danger în JS) */
 .btn-danger {
     background-color: var(--white) !important;
     border: 1.5px solid var(--black) !important;
@@ -213,7 +207,6 @@ body {
     color: var(--white) !important;
 }
 
-/* Cardul principal care conține .content */
 .content-card {
     background-color: var(--bg-surface);
     border: 2px solid var(--black);
@@ -223,7 +216,6 @@ body {
     box-shadow: 6px 6px 0px var(--black);
 }
 
-/* Stiluri pentru tabelul generat în .content */
 .content table {
     width: 100%;
     border-collapse: collapse;
@@ -258,7 +250,6 @@ body {
     background-color: var(--bg-body);
 }
 
-/* Ferestre Modal */
 .custom-modal {
     background-color: var(--white);
     border: 2px solid var(--black);
@@ -276,7 +267,6 @@ body {
     color: var(--gray-muted) !important;
 }
 
-/* Face butonul "X" de închidere negru (înlocuiește efectul btn-close-white) */
 .custom-modal .btn-close {
     filter: none !important;
     opacity: 1;
@@ -294,7 +284,6 @@ body {
     border-top: 1px solid var(--border-light);
 }
 
-/* Input-uri */
 .form-label {
     font-size: 0.85rem;
     font-weight: 600;
@@ -330,7 +319,6 @@ body {
     border-radius: 0 8px 8px 0;
 }
 
-/* Mesaje eroare validare */
 form p {
     font-size: 0.78rem;
     font-weight: 600;
@@ -339,7 +327,6 @@ form p {
     min-height: 16px;
 }
 
-/* Responsivitate pe ecrane mici */
 @media (max-width: 900px) {
     .app-wrapper {
         flex-direction: column;

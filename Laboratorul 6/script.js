@@ -6,7 +6,6 @@ function valid(email) {
     return pattern.test(email);
 }
 
-//add student
 function addStudent(e){
     if(e) e.preventDefault();
 
@@ -59,7 +58,6 @@ function addStudent(e){
     }
 }
 
-//edit student
 let currentEditId = null;
 
 function openEditModal(student) {
@@ -125,27 +123,23 @@ function editStudent(e){
     }
 }
 
-//clear any error
 ["firstname", "lastname", "age", "class", "email", 
  "firstnameEdit", "lastnameEdit", "ageEdit", "classEdit", "emailEdit"].forEach(id => {
     document.getElementById(id).addEventListener("input", () => ClearError(id));
 });
 
-//addEventListeners for offcanvases
 const stdSub = document.getElementById("studentSubmit");
 stdSub.addEventListener("click", addStudent);
 
 const stdEdit = document.getElementById("studentEdit");
 stdEdit.addEventListener("click", editStudent);
 
-//delete student
 function deleteStudent(e){
     students = students.filter(student => student.date !== e);
     localStorage.setItem("students", JSON.stringify(students));
     loadOnScreen();
 }
 
-//show students on the page
 function addStudentOnPage(e){
     const section = document.createElement("section");
     section.className = "card";
