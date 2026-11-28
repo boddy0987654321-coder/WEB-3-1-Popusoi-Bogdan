@@ -1,120 +1,207 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestionarea elevilor</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-    crossorigin="anonymous"
-  >
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog Studenți</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container py-4 py-md-5">
-    <header class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2 pb-3 mb-4 border-bottom border-dark-subtle">
-      <div>
-        <h1 class="h3 fw-bold mb-1">Gestionarea elevilor</h1>
-      </div>
-      <div class="fw-semibold border rounded px-3 py-2 bg-white">
-        Total elevi: <span id="total-elevi">0</span>
-      </div>
-    </header>
 
-    <div class="row g-4 align-items-start">
-      <section class="col-12 col-lg-4">
-        <div class="card">
-          <div class="card-body p-4">
-            <h2 class="h5 fw-bold mb-3" id="titlu-formular">Adaugă elev</h2>
+    <div class="app-wrapper">
+        <!-- Sidebar stânga -->
+        <aside class="sidebar">
+            <div class="brand-box">
+                <div class="brand-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+                        <path d="M4 4H3v1h2V2h1v20H5v-1H4v2h18V1H4zm3-2h14v20H7zM5 20H3v-1h1v-1h1zm0-6H3v-1h1v-1h1zm0-6H3V7h1V6h1zm0 
+                        3H3v-1h1V9h1zm0 6H3v-1h1v-1h1zm10.5-5h-3A3.504 3.504 0 0 0 9 15.5V18h10v-2.5a3.504 3.504 0 0 0-3.5-3.5zm2.5 
+                        5h-8v-1.5a2.503 2.503 0 0 1 2.5-2.5h3a2.503 2.503 0 0 1 2.5 2.5zm-4-6a3 3 0 1 0-3-3 3.003 3.003 0 0 0 3 
+                        3zm0-5a2 2 0 1 1-2 2 2.002 2.002 0 0 1 2-2z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="brand-title">Catalog</h1>
+                    <span class="brand-subtitle">Gestiune Academică</span>
+                </div>
+            </div>
 
-            <form id="form-elev" novalidate>
-              <div class="mb-3">
-                <label for="nume" class="form-label">Nume și prenume</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="nume"
-                  placeholder="ex. Andrei Popescu"
-                  required
-                >
-              </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    <span>Panou Principal</span>
+                </a>
+                <a href="#offcanvasAddStudent" class="nav-item" data-bs-toggle="modal" data-bs-target="#offcanvasAddStudent">
+                    <i class="bi bi-person-plus-fill"></i>
+                    <span>Student Nou</span>
+                </a>
+            </nav>
 
-              <div class="mb-3">
-                <label for="varsta" class="form-label">Vârstă</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="varsta"
-                  min="1"
-                  max="120"
-                  placeholder="ex. 17"
-                  required
-                >
-              </div>
+            <div class="sidebar-footer">
+                <div class="info-card">
+                    <i class="bi bi-shield-check"></i>
+                    <p>Datele sunt sincronizate local în timp real.</p>
+                </div>
+            </div>
+        </aside>
 
-              <div class="mb-3">
-                <label for="grupa" class="form-label">Grupă / Clasă</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="grupa"
-                  placeholder="ex. DAW-241"
-                  required
-                >
-              </div>
+        <!-- Zona principală dreapta -->
+        <main class="main-panel">
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div>
+                    <h2 class="page-heading">Evidența Studenților</h2>
+                    <p class="page-subheading">Administrează lista, grupele și datele de contact</p>
+                </div>
 
-              <div class="mb-3">
-                <label for="email" class="form-label">E-mail</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="ex. andrei@scoala.md"
-                  required
-                >
-              </div>
-
-              <div class="alert py-2 px-3 small d-none mb-3" id="mesaj-eroare" role="alert"></div>
-
-              <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary" id="btn-submit">
-                  Adaugă elev
+                <button class="btn btn-primary btn-add-main" data-bs-toggle="modal" data-bs-target="#offcanvasAddStudent">
+                    <i class="bi bi-plus-lg me-2"></i> Adaugă Student
                 </button>
-                <button type="button" class="btn btn-outline-dark d-none" id="btn-anuleaza-editare">
-                  Anulează
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
+            </header>
 
-      <section class="col-12 col-lg-8">
-        <div class="d-flex flex-column flex-sm-row gap-2 mb-3">
-          <input
-            type="search"
-            class="form-control"
-            id="cautare"
-            placeholder="Caută după nume și prenume..."
-            aria-label="Caută după nume și prenume"
-          >
-          <button
-            type="button"
-            class="btn btn-outline-dark text-nowrap"
-            id="btn-sterge-tot"
-            disabled
-          >
-            Șterge toți elevii
-          </button>
-        </div>
-
-        <div id="lista-elevi" class="row g-3"></div>
-      </section>
+            <!-- Containerul pentru conținutul generat de script.js -->
+            <section class="content-card">
+                <div class="content"></div>
+            </section>
+        </main>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <!-- MODAL ADĂUGARE (Păstrează id="offcanvasAddStudent" pentru compatibilitate cu JS) -->
+    <div class="modal fade" id="offcanvasAddStudent" tabindex="-1" aria-labelledby="offcanvasAddStudentLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content custom-modal">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title" id="offcanvasAddStudentLabel">Adaugă un student</h5>
+                        <small class="text-muted">Completează toate câmpurile obligatorii</small>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="offcanvas-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="firstname" class="form-label">Prenume:</label>
+                                <div id="firstnameDiv">
+                                    <input class="form-control" id="firstname" placeholder="e.g. Mario">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastname" class="form-label">Nume:</label>
+                                <div id="lastnameDiv">
+                                    <input class="form-control" id="lastname" placeholder="e.g. Benieto">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label for="age" class="form-label">Vârsta:</label>
+                                <div id="ageDiv">
+                                    <input type="number" class="form-control" id="age" placeholder="e.g. 18">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <label for="class" class="form-label">Clasa:</label>
+                                <div id="classDiv">
+                                    <input class="form-control" id="class" placeholder="e.g. RTC-261">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email-ul:</label>
+                                <div id="emailDiv">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" id="email" placeholder="e.g. mario@example.com">
+                                        <span class="input-group-text">@</span>
+                                    </div>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer-custom mt-4">
+                            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Anulează</button>
+                            <button type="submit" class="btn btn-secondary" id="studentSubmit">Salvează Studentul</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL EDITARE (Păstrează id="offcanvasEditStudent" pentru compatibilitate cu JS) -->
+    <div class="modal fade" id="offcanvasEditStudent" tabindex="-1" aria-labelledby="offcanvasEditStudentLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content custom-modal">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title" id="offcanvasEditStudentLabel">Editează datele studentului</h5>
+                        <small class="text-muted">Actualizează informațiile selectate</small>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="offcanvas-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="firstnameEdit" class="form-label">Prenume:</label>
+                                <div id="firstnameEditDiv">
+                                    <input class="form-control" id="firstnameEdit" placeholder="e.g. Mario">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastnameEdit" class="form-label">Nume:</label>
+                                <div id="lastnameEditDiv">
+                                    <input class="form-control" id="lastnameEdit" placeholder="e.g. Benieto">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label for="ageEdit" class="form-label">Vârsta:</label>
+                                <div id="ageEditDiv">
+                                    <input type="number" class="form-control" id="ageEdit" placeholder="e.g. 18">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <label for="classEdit" class="form-label">Clasa:</label>
+                                <div id="classEditDiv">
+                                    <input class="form-control" id="classEdit" placeholder="e.g. RTC-261">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="emailEdit" class="form-label">Email-ul:</label>
+                                <div id="emailEditDiv">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" id="emailEdit" placeholder="e.g. mario@example.com">
+                                        <span class="input-group-text">@</span>
+                                    </div>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer-custom mt-4">
+                            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Anulează</button>
+                            <button type="submit" class="btn btn-secondary" id="studentEdit">Actualizează</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+            crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 </html>

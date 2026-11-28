@@ -1,84 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-body: #f4f4f4;
+    --bg-sidebar: #ffffff;
+    --bg-surface: #ffffff;
+    --bg-input: #fafafa;
+    --black: #000000;
+    --white: #ffffff;
+    --gray-dark: #222222;
+    --gray-muted: #666666;
+    --border-light: #e0e0e0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-  background-color: #f5f5f5;
-  color: #111111;
+    margin: 0;
+    background-color: var(--bg-body);
+    color: var(--black);
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
 }
 
-.card {
-  background-color: #ffffff;
-  border: 1px solid #d4d4d4;
-  border-radius: 8px;
+/* Layout principal cu Sidebar + Panou */
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
 }
 
-.student-card {
-  transition: border-color 0.15s ease;
+/* SIDEBAR */
+.sidebar {
+    width: 270px;
+    background-color: var(--bg-sidebar);
+    border-right: 2px solid var(--black);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    height: 100vh;
 }
 
-.student-card:hover {
-  border-color: #111111;
+.brand-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--black);
 }
 
-.form-control {
-  border-color: #cfcfcf;
-  color: #111111;
+.brand-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--black);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.form-control:focus {
-  border-color: #111111;
-  box-shadow: 0 0 0 0.2rem rgba(17, 17, 17, 0.12);
+.brand-icon svg {
+    fill: var(--white);
 }
 
-.form-control.is-invalid {
-  border-color: #111111;
-  background-image: none;
+.brand-title {
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.1;
+    color: var(--black);
 }
 
-.btn-primary {
-  background-color: #111111;
-  border-color: #111111;
-  color: #ffffff;
+.brand-subtitle {
+    font-size: 0.78rem;
+    color: var(--gray-muted);
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 2rem;
+    flex-grow: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    color: var(--gray-dark);
+    text-decoration: none;
+    font-weight: 500;
+    border: 1.5px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: var(--bg-body);
+    border-color: var(--black);
+    color: var(--black);
+}
+
+.nav-item.active {
+    background-color: var(--black);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.sidebar-footer .info-card {
+    background: var(--bg-body);
+    border: 1.5px solid var(--black);
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: var(--gray-dark);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.sidebar-footer .info-card i {
+    color: var(--black);
+    font-size: 1.1rem;
+}
+
+.sidebar-footer .info-card p {
+    margin: 0;
+}
+
+/* ZONA PRINCIPALĂ */
+.main-panel {
+    flex: 1;
+    padding: 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--black);
+}
+
+.page-heading {
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--black);
+}
+
+.page-subheading {
+    color: var(--gray-muted);
+    margin: 4px 0 0 0;
+    font-size: 0.95rem;
+}
+
+/* Butoane Alb-Negru */
+.btn-primary,
+.btn-secondary {
+    background-color: var(--black) !important;
+    border: 2px solid var(--black) !important;
+    color: var(--white) !important;
+    font-weight: 600;
+    padding: 0.7rem 1.4rem;
+    border-radius: 10px;
+    transition: all 0.2s ease;
 }
 
 .btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active {
-  background-color: #2e2e2e !important;
-  border-color: #2e2e2e !important;
-  color: #ffffff !important;
+.btn-secondary:hover {
+    background-color: var(--white) !important;
+    color: var(--black) !important;
+    box-shadow: 4px 4px 0px var(--black);
+    transform: translate(-2px, -2px);
 }
 
-.btn-outline-dark {
-  background-color: #ffffff;
-  border-color: #111111;
-  color: #111111;
+.btn-cancel {
+    background: var(--white);
+    border: 1.5px solid var(--black);
+    color: var(--black);
+    border-radius: 10px;
+    padding: 0.7rem 1.2rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
 
-.btn-outline-dark:hover,
-.btn-outline-dark:focus {
-  background-color: #111111;
-  border-color: #111111;
-  color: #ffffff;
+.btn-cancel:hover {
+    background: var(--bg-body);
 }
 
-.btn-outline-dark:disabled {
-  border-color: #a3a3a3;
-  color: #737373;
+/* Buton de ștergere (dacă folosești .btn-danger în JS) */
+.btn-danger {
+    background-color: var(--white) !important;
+    border: 1.5px solid var(--black) !important;
+    color: var(--black) !important;
+    border-radius: 8px;
+    transition: all 0.2s ease;
 }
 
-.alert {
-  background-color: #f0f0f0;
-  border: 1px solid #111111;
-  color: #111111;
+.btn-danger:hover {
+    background-color: var(--black) !important;
+    color: var(--white) !important;
 }
 
-.badge-grupa {
-  background-color: #efefef;
-  color: #111111;
-  border: 1px solid #d4d4d4;
-  font-weight: 500;
+/* Cardul principal care conține .content */
+.content-card {
+    background-color: var(--bg-surface);
+    border: 2px solid var(--black);
+    border-radius: 14px;
+    padding: 1.75rem;
+    min-height: 68vh;
+    box-shadow: 6px 6px 0px var(--black);
 }
 
-.empty-state {
-  background-color: #ffffff;
-  border: 1px dashed #a3a3a3;
-  border-radius: 8px;
+/* Stiluri pentru tabelul generat în .content */
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--black);
+}
+
+.content th {
+    text-align: left;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 1rem;
+}
+
+.content th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.content th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.content td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: middle;
+}
+
+.content tbody tr:hover {
+    background-color: var(--bg-body);
+}
+
+/* Ferestre Modal */
+.custom-modal {
+    background-color: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 14px;
+    color: var(--black);
+    box-shadow: 8px 8px 0px var(--black);
+}
+
+.custom-modal .modal-header {
+    border-bottom: 2px solid var(--black);
+    padding: 1.5rem;
+}
+
+.custom-modal .modal-header .text-muted {
+    color: var(--gray-muted) !important;
+}
+
+/* Face butonul "X" de închidere negru (înlocuiește efectul btn-close-white) */
+.custom-modal .btn-close {
+    filter: none !important;
+    opacity: 1;
+}
+
+.custom-modal .modal-body {
+    padding: 1.5rem;
+}
+
+.modal-footer-custom {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-light);
+}
+
+/* Input-uri */
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 6px;
+}
+
+.form-control {
+    background-color: var(--bg-input);
+    border: 1.5px solid var(--black);
+    border-radius: 8px;
+    color: var(--black);
+    padding: 0.65rem 0.9rem;
+}
+
+.form-control::placeholder {
+    color: #999999;
+}
+
+.form-control:focus {
+    background-color: var(--white);
+    color: var(--black);
+    border-color: var(--black);
+    box-shadow: 3px 3px 0px var(--black);
+    outline: none;
+}
+
+.input-group-text {
+    background-color: var(--black);
+    border: 1.5px solid var(--black);
+    color: var(--white);
+    font-weight: 600;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Mesaje eroare validare */
+form p {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--black);
+    margin: 4px 0 0 0;
+    min-height: 16px;
+}
+
+/* Responsivitate pe ecrane mici */
+@media (max-width: 900px) {
+    .app-wrapper {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        padding: 1.25rem;
+        border-right: none;
+        border-bottom: 2px solid var(--black);
+    }
+    .sidebar-nav, .sidebar-footer {
+        display: none;
+    }
+    .main-panel {
+        padding: 1.5rem;
+    }
 }
